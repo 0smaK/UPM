@@ -5,7 +5,7 @@ int main(){
 	/*
 	
 	=======================
-	Autor: Óscar 
+	Autor: Ã“scar 
 	Grupo: 
 	ETSI SIST. INFORMATICOS
 	=======================
