@@ -76,7 +76,7 @@ char comprobarLetra(char * letra, int dni){
 
         return 0;
     }else{
-        printf("\Letra invalida, letra correcta: %c",letra_valida);
+        printf("\nLetra invalida, letra correcta: %c",letra_valida);
         pedirLetra(dni);
     }
 }
