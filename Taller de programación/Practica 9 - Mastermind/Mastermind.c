@@ -1,6 +1,7 @@
 /*
  * MASTERMIND EN C
  * Creado por: Óscar, @0smak
+ * STATUS: EN CONSTRUCCIÓN
  */
 
 #include <stdio.h>
@@ -31,35 +32,25 @@ int main(){
 
 int GenerarNumero(int v[], int i){
         srand(time(NULL));
-        int num,t=0, j=0, encontrado = 0, igual = 1;
-        for(i=0; i<N; i++) {
-                num=rand()%9+1;
-                printf("\nNumero inicial generado: (%d)\n",num);
-                do{ //mientras sea el numero = a valor de array seguir bucle
-                        printf("==================> %d\n",t);
-                        for(j=0;j<t;j++){ //Mientras exista un numero en el array ejecutar eso
-                                printf("Vector[%d]: numero en array %d = generado %d?\n",j,v[j],num);
-                                if(v[j]==num) { //si encontramos un numero coincidente, encontrado = 1
-                                        encontrado = 1;
-                                        printf("\n\n\n========== ENCONTRADO (%d) ======= \n\n\n",t);
-
-                                }
+        int num,j=0, repetido = 0;
+        for(i=0; i<5; i++) {
+                repetido =0;
+                num = rand()%9+1;
+                for(j=0; j<i; j++) {
+                        if(num==v[j]) {
+                                repetido = 1;
+                                i--;
+                                j--;
                         }
-                        if(encontrado==1) { //si encontrado = 1, generar otro numero aleatorio
-                                num=rand()%9+1;
-                        }else{
-                                v[i] = num;
-                                igual=0;
-                                printf("\nnumero final:v[%d] = [%d]\n",i,v[i]);
-                                t++;
-                        }
-                }while(igual==1);
-                encontrado=0;
+                }
+                if(!repetido) {
+                        v[i]=num;
+                }
         }
-        igual = 1;
-        printf("\n");
+
+        printf("\nDEBUG: ");
         for(i=0; i<N; i++) {
-                printf("%d - ",v[i]);
+                printf("%d",v[i]);
         }
         printf("\n");
 }
