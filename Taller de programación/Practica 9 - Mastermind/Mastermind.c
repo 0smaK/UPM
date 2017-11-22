@@ -1,7 +1,8 @@
 /*
  * MASTERMIND EN C
  * Creado por: Óscar, @0smak
- * STATUS: EN CONSTRUCCIÓN
+ * STATUS: Terminado
+ * TO-DO: Depurar programa para malgastar menos recursos y hacer más entendible el codigo
  */
 #include <stdio.h>
 #include <stdlib.h> //libreria para rand()
