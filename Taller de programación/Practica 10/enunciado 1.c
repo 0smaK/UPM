@@ -20,7 +20,7 @@ int main(){
 
         leer(*pf1,v,*longitud){
               *pf1 = fopen("ENT.TXT","r");
-              fscanf("")
+              fscanf("")//escanear y guardar en array, descartar los que no son multiplos.
 
         }
 }
