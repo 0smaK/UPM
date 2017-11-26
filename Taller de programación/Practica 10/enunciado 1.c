@@ -33,7 +33,6 @@ void leer(FILE *pf1, int v[], int *longitud){
 			i++;
 		}
 	}
-	printf("\n-%d-",longitud);
 	fclose(pf1);
 }
 
