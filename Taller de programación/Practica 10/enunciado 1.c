@@ -9,18 +9,38 @@
 #include <stdio.h>
 
 //prototipos
-void leer   (FILE *pf1, int v[], int *longitud);
+void leer   (FILE *pf1, int v[], int longitud);
 void grabar (int v[], int longitud,FILE *pf2);
 
 int main(){
         FILE *pf1;
         FILE *pf2;
         int v[20];
-        int *logitud;
+        int longitud;
 
-        leer(*pf1,v,*longitud){
-              *pf1 = fopen("ENT.TXT","r");
-              fscanf("")//escanear y guardar en array, descartar los que no son multiplos.
+        leer(pf1,v,longitud);
+        grabar(v,longitud,pf2);
+        
+        return 0;
+}
+void leer(FILE *pf1, int v[], int longitud){	
+	pf1 = fopen("ENT.TXT","r");
+	int i,valor;
+    while((fscanf(pf1,"%d",&valor))!=EOF){
+	    if((valor%5)==0){
+		  	longitud++;
+	    	v[i] = valor;
+			i++;
+		}
+	}
+	fclose(pf1);
+}
 
-        }
+void grabar(int v[], int longitud,FILE *pf2){
+	pf2 = fopen("SAL.TXT","w");
+	int i;
+	for(i=0;i<longitud;i++){
+		fprintf(pf2,"\n%d",v[i]);
+	}	
+	fclose(pf2);
 }
