@@ -40,7 +40,7 @@ void grabar(int v[], int longitud,FILE *pf2){
 	pf2 = fopen("SAL.TXT","w");
 	int i;
 	for(i=0;i<longitud;i++){
-		fprintf(pf2,"\n%d",v[i]);
+		fprintf(pf2,"%d\n",v[i]);
 	}	
 	fclose(pf2);
 }
