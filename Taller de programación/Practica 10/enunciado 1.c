@@ -9,30 +9,32 @@
 #include <stdio.h>
 
 //prototipos
-void leer   (FILE *pf1, int v[], int longitud);
-void grabar (int v[], int longitud,FILE *pf2);
+void leer(FILE *pf1, int v[], int *longitud);
+void grabar(int v[], int longitud,FILE *pf2);
 
 int main(){
         FILE *pf1;
-        FILE *pf2;
+		FILE *pf2;
         int v[20];
-        int longitud;
+        int longitud = 0;
 
-        leer(pf1,v,longitud);
-        grabar(v,longitud,pf2);
+        leer(pf1,v,&longitud);
+       	printf("\nLa longitud es: %d\n",longitud);
+	    //grabar(v,longitud,pf2);
         
         return 0;
 }
-void leer(FILE *pf1, int v[], int longitud){	
+void leer(FILE *pf1, int v[], int *longitud){	
 	pf1 = fopen("ENT.TXT","r");
 	int i,valor;
     while((fscanf(pf1,"%d",&valor))!=EOF){
 	    if((valor%5)==0){
-		  	longitud++;
+		  	(*longitud)++;
 	    	v[i] = valor;
 			i++;
 		}
 	}
+	printf("\n-%d-",longitud);
 	fclose(pf1);
 }
 
