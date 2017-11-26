@@ -19,8 +19,7 @@ int main(){
         int longitud = 0;
 
         leer(pf1,v,&longitud);
-       	printf("\nLa longitud es: %d\n",longitud);
-	    //grabar(v,longitud,pf2);
+	grabar(v,longitud,pf2);
         
         return 0;
 }
