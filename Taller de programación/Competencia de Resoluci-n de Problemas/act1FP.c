@@ -1,5 +1,6 @@
-
 #include <stdio.h>
+#define matricula "bo0548"
+#define nombre "Munoz Cano, Oscar"
 
 //Prototipos
 int crearAlgoritmo(int n, int *algoritmo);
@@ -12,19 +13,23 @@ int main(){
 	printf("\nPiensa un numero del 1 al 100");
 	printf("\ny a continuacion contesta las siguientes preguntas con Si (s/S) o No (n/N)\n\n");
 	
-	do{
-		crearAlgoritmo(n_tarjeta,&algoritmo);
-		crearTarjeta(vprimer, algoritmo, &longitud, n_tarjeta);
+	do{  //Bucle do...while que ejecuta las diferentes funciones 7 veces
+		crearAlgoritmo(n_tarjeta,&algoritmo); //Crea el "algoritmo" para saber que numeros tiene que imprimir
+		crearTarjeta(vprimer, algoritmo, &longitud, n_tarjeta); //Imprime los numeros y te pide si el numero que has pensado esta en la lista
 		n_tarjeta++;
 	}while(n_tarjeta<=7);
 	
-	adivinar(vprimer, longitud);
+	adivinar(vprimer, longitud); //Te adivina el numero
 	
-	return 0;
+	return 0; //salimos sin errores del programa
 }
 
+/*
+* Funcion que crea el algoritmo
+* Cada tarjeta tiene asignado diferente tipo de algoritmo y esta funcion calcula como tiene que hacerlo
+*/
 int crearAlgoritmo(int n, int *algoritmo){
-	switch(n){
+	switch(n){ 
 		case 1: //algoritmo +2                                  0
 		    *algoritmo = 0;
 			break;
@@ -49,12 +54,17 @@ int crearAlgoritmo(int n, int *algoritmo){
 	}
 }
 
+/*
+* Funcion que crea la tarjeta
+*/
 int crearTarjeta(int vprimer[],int algoritmo, int *longitud, int n_tarjeta){
-	int n_gen=0, i = 0 , primernum = 0;
-	n_gen = algoritmo+1;
+	int n_gen=0, primernum = 0, i = 0, j=0;
+
+	n_gen = algoritmo+1; //Algoritmo + 1 siempre es el primer numero
 	printf("\n%d\n",n_gen);
 	primernum=n_gen;
-	while(n_gen<=100){
+	
+	while(n_gen<=100){ 
 		for(i=0;i<algoritmo;i++){
 			n_gen++;
 			if(n_gen<=100) printf("%d ",n_gen);
@@ -62,24 +72,22 @@ int crearTarjeta(int vprimer[],int algoritmo, int *longitud, int n_tarjeta){
 		n_gen=n_gen+(algoritmo+2);
 		if(n_gen<=100) printf("%d ",n_gen);
 	}
-		int resp;
-		printf("\n\nEsta el numero en la lista? >>> ");
-	    fflush(stdin);
+	
+	int resp;
+	printf("\n\nEsta el numero en la lista? >>> ");
+        fflush(stdin);
 
-		scanf("%c",&resp);
-		if((resp=='s')||(resp=='S')){
-			vprimer[n_tarjeta] = primernum;
-			printf("\n\nDEB: %d\n\n",vprimer[n_tarjeta]);
-			(*longitud)++;
-		}
+	scanf("%c",&resp);
+	if((resp=='s')||(resp=='S')){
+		vprimer[*longitud] = primernum;
+		(*longitud)++;
+    }
 		
 }
 
 int adivinar(int vprimer[],int longitud){
 	int i = 0, numero_adivinado=0;
 	for (i=0; i<longitud; i++){
-		printf("\n\nv[%d]: %d",i,vprimer[i]);
-		printf("\nnumad: %d",numero_adivinado);
 		numero_adivinado += vprimer[i];
 	}
 	printf("\n\n\t================================================\n");
