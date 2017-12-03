@@ -153,9 +153,12 @@ int CalcMINMED(int tMIN[], int *mediaMIN){
 	printf("\n\nLa temperatura media minima es: %dºC",*mediaMIN);
 }
 
+/*
+* En esta funcion se calcula cuantos dias se ha superado la media maxima
+*/
 int CalcDiasSupMediaMax(int tMAX[], int mediaMAX){
 	int i=0, dias_superados=0;
-	for(i=0;i<NumDias;i++){
+	for(i=0;i<NumDias;i++){ //for basico que cuenta cuantas veces ocurre esto
 		if(tMAX[i]>mediaMAX){
 			dias_superados++;
 		}
@@ -163,15 +166,22 @@ int CalcDiasSupMediaMax(int tMAX[], int mediaMAX){
 	printf("\n\nEn este mes se ha superado la media maxima un total de %d veces.",dias_superados);
 }
 
+/*
+* Funcion que calcula cuando coincide la media minima con la temperatura minima de ese dia
+*/
 int CalcCoincid(int tMIN[], int mediaMIN){
 	int i=0, coinciden=0;
-	for(i=0;i<NumDias;i++){
+	for(i=0;i<NumDias;i++){ //for basico que cuenta cuantas veces ocurre esto
 		if(tMIN[i]==mediaMIN){
 			coinciden++;
 		}
 	}
 	printf("\n\nEn este mes las temperaturas minimas y la media coinciden un total de %d veces.",coinciden);
 }
+
+/*
+*  Funcion que calcula la minima de las minimas
+*/
 int CalcMinMin(int tMIN[]){
 	int i = 1, minimo = tMIN[0];
 	for(i=1; i<NumDias;i++){
@@ -182,6 +192,10 @@ int CalcMinMin(int tMIN[]){
 	printf("\n\nLa temperatura minima de las temperaturas minimas es de %dºC",minimo);
 	
 }
+
+/*
+* Funcion que calcula la maxima de las maximas
+*/
 int CalcMaxMax(int tMAX[]){
 	int i = 1, maximo = tMAX[0];
 	for(i=1; i<NumDias;i++){
