@@ -23,7 +23,7 @@ int main(){
 	return 0;
 }
 
-crearAlgoritmo(int n, int *algoritmo){
+int crearAlgoritmo(int n, int *algoritmo){
 	switch(n){
 		case 1: //algoritmo +2                                  0
 		    *algoritmo = 0;
@@ -49,7 +49,7 @@ crearAlgoritmo(int n, int *algoritmo){
 	}
 }
 
-crearTarjeta(int vprimer[],int algoritmo, int *longitud, int n_tarjeta){
+int crearTarjeta(int vprimer[],int algoritmo, int *longitud, int n_tarjeta){
 	int n_gen=0, i = 0 , primernum = 0;
 	n_gen = algoritmo+1;
 	printf("\n%d\n",n_gen);
@@ -75,7 +75,7 @@ crearTarjeta(int vprimer[],int algoritmo, int *longitud, int n_tarjeta){
 		
 }
 
-adivinar(int vprimer[],int longitud){
+int adivinar(int vprimer[],int longitud){
 	int i = 0, numero_adivinado=0;
 	for (i=0; i<longitud; i++){
 		printf("\n\nv[%d]: %d",i,vprimer[i]);
