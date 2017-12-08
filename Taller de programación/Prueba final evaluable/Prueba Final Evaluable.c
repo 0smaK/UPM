@@ -5,6 +5,13 @@
 */
 
 
+/*
+* REALIZAR MENU CON OPCIONES PARA QUE GIRE UNA MATRIZ Y OTRA OPCION PARA QUE COMPRUEBE SI UN VECTOR ES GIRADO DE OTRO
+*
+* ENTREGAR ANTES DEL LUNES 11/12/2017
+*/
+
+
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
@@ -49,32 +56,51 @@ int main(){
 }
 
 int esgiro (int A[], int B[], int *tamgiro){
-    int i=0,j=0,k=0,
-    Ag[N], giro = 0;
+    int i=0,j=0,k=0, Ac[N], Ag[N], giro = 0, b_igual = 1;
+
+	//copiamos A[] en Ac[]
 
     for(i=0;i<N;i++){
+        Ac[i] = A[i];
         Ag[i] = A[i];
     }
+	
+	//Hasta que o se acabe todos los giros posibles del array o hasta que lo encuentre ejecutar lo que está en el do...while
+	
+	do{
+		
+		//Comprobamos si Ag[] y B[] son iguales
+		b_igual=1;
+		for(i=0;i<N;i++){
+			if(Ag[i] != B[i]){
+				b_igual=0;
+			}
+		}
+		
+		//Giramos el array
+		
+		Ag[0] = Ac[N-1];
+		for(i=1;i<N;i++){
+			Ag[i] = Ac[i-1];
+		}
 
-    for(i=0;i<N;i++){
-        printf("\nAg: %d - B: %d",Ag,B);
-        if(Ag==B){
-            giro = 1;
-        }else{
-            int x = N-1;
-            Ag[0] = A[x];
+		//Copia Ag[] en Ac[]
+		
+		for(i=0;i<N;i++){
+        	Ac[i] = Ag[i];
+    	}
+    
+    	//Asignamos el valor j a tamgiro
+    	
+		*tamgiro = j;
+		j++;
+		
+	}while((b_igual == 0)&&(j<N));
 
-            for(k=1;k<N;k++){
-                Ag[i] = A[i-1];
-            }
-            printf("\nVector girado: ");
-            for(j=0;j<N;j++){
-                printf("%d ",Ag[j]);
-            }
-            printf("\n");
-        }
-    }
+	if(b_igual==1)giro=1;
 
+	//Imprimir vectores A[] y B[]
+	
     printf("\nVector A: ");
     for(j=0;j<N;j++){
         printf("%d ",A[j]);
@@ -84,5 +110,7 @@ int esgiro (int A[], int B[], int *tamgiro){
     for(j=0;j<N;j++){
         printf("%d ",B[j]);
     }
+    
     return giro;
 }
+
