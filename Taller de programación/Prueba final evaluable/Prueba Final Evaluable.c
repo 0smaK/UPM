@@ -114,3 +114,5 @@ int esgiro (int A[], int B[], int *tamgiro){
     return giro;
 }
 
+void rotar (int mat[N][N]{}
+	
