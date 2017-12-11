@@ -165,23 +165,23 @@ void rotar (int mat[N][N]){
 	
 	int aux;
 	//rotamos matriz, algoritmo: N-j-1, i. Así imprime la matriz girada.
-	
+
 	for (i = 0; i < N; i++){
-        for (j = i + 1; j < N; j++){
-            aux = mat[i][j];
-            mat[i][j] = mat[j][i];
-            mat[j][i] = aux;
-        }
-    }
- 
-    for (i = 0; i < N; i++){
-        
-		for (j = 0; j < N / 2; j++){
-            aux = mat[i][j];
-            mat[i][j] = mat[i][N - 1 - j];
-            mat[i][N - 1 - j] = aux;
-        }
+		for (j = i + 1; j < N; j++){
+		    aux = mat[i][j];
+		    mat[i][j] = mat[j][i];
+		    mat[j][i] = aux;
+		}
 	}
+ 
+  	for (i = 0; i < N; i++){
+		for (j = 0; j < N / 2; j++){
+			aux = mat[i][j];
+			mat[i][j] = mat[i][N - 1 - j];
+			mat[i][N - 1 - j] = aux;
+        	}
+	}
+	
 	printf("\nMatriz girada 90 grados:\n");
 	
 	//imprimimos nuestra nueva matriz
