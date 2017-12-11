@@ -5,31 +5,63 @@
 */
 
 
-/*
-* REALIZAR MENU CON OPCIONES PARA QUE GIRE UNA MATRIZ Y OTRA OPCION PARA QUE COMPRUEBE SI UN VECTOR ES GIRADO DE OTRO
-*
-* ENTREGAR ANTES DEL LUNES 11/12/2017
-*/
-
-
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
 
-#define N 3
+#define N 3 //DEFINIR VALOR DE LA MATRIZ CUADRADA
 
 //prototipos
 int esgiro (int A[], int B[], int *tamgiro);
 void rotar (int mat[N][N]);
+int menu(int *opc);
+int leerdatos_esgiro(int A[N], int B[N]); 
+int leerdatos_rotar(int mat[N][N]);
 
 int main(){
+	
+	int opc;
+	menu(&opc);
     int A[N];
     int B[N];
     int mat[N][N];
 
-    int tamgiro = 0;
+	fflush(stdin);
 
-    printf("\nA continuacion inserte los datos en la matriz A: \n");
+    int tamgiro = 0;
+	
+	switch(opc){
+		case 1: leerdatos_esgiro(A,B);	
+				int giro = esgiro(A,B,&tamgiro);
+    			printf("\n\nValor de giro: %d",giro);
+    			if(giro==0) tamgiro = -1;
+    			printf("\nTamanyo de giro: %d\n",tamgiro);
+				break;
+		case 2: leerdatos_rotar(mat); 
+				rotar(mat);
+				break;
+		case 0: exit(0); 
+				break;
+		default: menu(&opc);
+	}
+	
+
+    return 0;
+}
+
+int menu(int *opc){
+	
+	printf("\nElige una opcion.\n\n");
+	printf("1. Girar array");
+	printf("\n2. Rotar matriz");
+	printf("\n0. Salir");
+	printf("\n\n>>>>[0-2]: ");
+	scanf("%d",opc);
+	return *opc;
+}
+
+int leerdatos_esgiro(int A[N], int B[N]){
+	printf("\nA continuacion inserte los datos en la matriz A: \n");
 
     int i = 0, j = 0;
     for(i=0;i<N;i++){
@@ -43,16 +75,6 @@ int main(){
         printf("Matriz B[%d]: ",i); scanf("%d",&B[i]);
         fflush(stdin);
     }
-
-    ///                  DEBUG              ///
-
-    int giro = esgiro(A,B,&tamgiro);
-    printf("\n\nValor de giro: %d",giro);
-    if(giro==0) tamgiro = -1;
-
-    printf("\nTamanyo de giro: %d\n",tamgiro);
-
-    return 0;
 }
 
 int esgiro (int A[], int B[], int *tamgiro){
@@ -114,5 +136,60 @@ int esgiro (int A[], int B[], int *tamgiro){
     return giro;
 }
 
-void rotar (int mat[N][N]{}
+int leerdatos_rotar(int mat[N][N]){
+	printf("\n\nA continuacion inserte los datos en la matriz: \n\n");
+	int i = 0, j = 0;
 	
+	//rellenar matriz
+	
+	for (i=0;i<N;i++){
+		for(j=0;j<N;j++){
+			printf("mat[%d][%d]: ",i,j);
+			scanf("%d",&mat[i][j]);
+		}
+	}
+}
+
+void rotar (int mat[N][N]){
+	int i = 0, j = 0;
+	
+	printf("\n");
+	//imprimimos matriz
+	printf("Matriz inicial:\n");
+	for (i=0;i<N;i++){
+		for(j=0;j<N;j++){
+			printf("%d\t",mat[i][j]);
+		}
+		printf("\n");
+	}
+	
+	int aux;
+	//rotamos matriz, algoritmo: N-j-1, i. Así imprime la matriz girada.
+	
+	for (i = 0; i < N; i++){
+        for (j = i + 1; j < N; j++){
+            aux = mat[i][j];
+            mat[i][j] = mat[j][i];
+            mat[j][i] = aux;
+        }
+    }
+ 
+    for (i = 0; i < N; i++){
+        
+		for (j = 0; j < N / 2; j++){
+            aux = mat[i][j];
+            mat[i][j] = mat[i][N - 1 - j];
+            mat[i][N - 1 - j] = aux;
+        }
+	}
+	printf("\nMatriz girada 90 grados:\n");
+	
+	//imprimimos nuestra nueva matriz
+	for(i=0;i<N;i++){
+		for(j=0;j<N;j++){
+			printf("%d\t",mat[i][j]);
+		}
+		printf("\n");
+	}
+	
+}
