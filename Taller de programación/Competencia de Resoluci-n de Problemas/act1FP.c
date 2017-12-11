@@ -1,6 +1,4 @@
 #include <stdio.h>
-#define matricula "bo0548"
-#define nombre "Munoz Cano, Oscar"
 
 //Prototipos
 int crearAlgoritmo(int n, int *algoritmo);
