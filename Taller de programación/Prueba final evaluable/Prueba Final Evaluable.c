@@ -22,13 +22,13 @@ int main(){
 	
 	int opc;
 	menu(&opc);
-    int A[N];
-    int B[N];
-    int mat[N][N];
+	int A[N];
+    	int B[N];
+    	int mat[N][N];
 
-	fflush(stdin);
+    	fflush(stdin);
 
-    int tamgiro = 0;
+	    int tamgiro = 0;
 	
 	switch(opc){
 		case 1: leerdatos_esgiro(A,B);	
@@ -63,18 +63,18 @@ int menu(int *opc){
 int leerdatos_esgiro(int A[N], int B[N]){
 	printf("\nA continuacion inserte los datos en la matriz A: \n");
 
-    int i = 0, j = 0;
-    for(i=0;i<N;i++){
-        printf("Matriz A[%d]: ",i); scanf("%d",&A[i]);
-        fflush(stdin);
-    }
+	    int i = 0, j = 0;
+	    for(i=0;i<N;i++){
+		printf("Matriz A[%d]: ",i); scanf("%d",&A[i]);
+		fflush(stdin);
+	    }
 
-    printf("\n");
+	    printf("\n");
 
-    for(i=0;i<N;i++){
-        printf("Matriz B[%d]: ",i); scanf("%d",&B[i]);
-        fflush(stdin);
-    }
+	    for(i=0;i<N;i++){
+		printf("Matriz B[%d]: ",i); scanf("%d",&B[i]);
+		fflush(stdin);
+	    }
 }
 
 int esgiro (int A[], int B[], int *tamgiro){
