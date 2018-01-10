@@ -4,6 +4,4 @@ Practicas y proyectos para mis estudios en la ETSISI (Universidad Politécnica d
 # Contenido
 - Taller de Programación **(C)**
 
-- Fundamentos de Programación **(C)**
-
-- Taller de Sistemas Operativos **(Shell)** *Proximamente*
+- Estructura de datos **(C++)**
