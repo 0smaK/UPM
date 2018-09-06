@@ -1,6 +1,6 @@
 /*
  * MASTERMIND EN C
- * Creado por: Óscar, @0smak
+ * Creado por: Óscar, @osmvk
  * STATUS: Terminado
  * TO-DO: Depurar programa para malgastar menos recursos y hacer más entendible el codigo
  */
