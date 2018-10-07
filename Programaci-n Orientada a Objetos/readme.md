@@ -1,6 +1,6 @@
 ## Programación Orientada a Objetos [JAVA]
 
-***
+
 
 ### Lección 1
 
