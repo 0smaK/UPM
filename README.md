@@ -9,3 +9,5 @@ Practicas y proyectos para mis estudios en la ETSISI (Universidad Politécnica d
 - Programación Orientada a Objetos   **[ JAVA ]**
 
 - Bases de Datos                   **[ SQL / DLL ]**
+
+- Inteligencia Artificial **[ Python ]**
