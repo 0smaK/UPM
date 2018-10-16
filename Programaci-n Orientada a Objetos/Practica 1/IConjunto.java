@@ -18,9 +18,10 @@ public interface IConjunto{
   void set(int posicion, boolean valor);
 
   /**
-  * Indica si el elemento posicion pertenece al conjunto
-  * @param posicion Elemento del cojunto
-  */
+   * Indica si el elemento 'posicion' pertenece al conjunto.
+   * @param posicion Elemento que se consulta.
+   * @return 'true' si el elemento pertenece al conjunto; 'false' si el elemento no pertenece al conjunto.
+   */
   boolean get(int posicion);
 
   /**
@@ -35,7 +36,17 @@ public interface IConjunto{
   IConjunto union(IConjunto c);
 
   /**
+  * Realiza la intersección matemática de conjuntos.
+  * @param c Conjunto con el que se va a realizar la intersección a nuestra instancia.
+  * @return Intersección del conjunto c con la instancia de la clase.
+  */
+  IConjunto intersection(IConjunto c);
+
+  /**
   * Indica numero de elementos del conjunto, siempre va a ser menor o igual a SIZE
   */
   int size();
+
+  @Override
+  String toString();
 }
