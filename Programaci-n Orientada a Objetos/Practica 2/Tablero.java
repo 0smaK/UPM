@@ -1,4 +1,4 @@
-public class Tablero implements ITablero{
+public class Tablero implements ITablero {
     
     private int[][] tablero;
     private int size;
