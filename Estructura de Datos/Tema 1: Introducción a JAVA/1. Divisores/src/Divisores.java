@@ -10,7 +10,7 @@ public class Divisores {
         else System.out.println("Numero no válido");
     }
     public static void mostrarDivisores(int valor){
-        for(int i=1; i<=valor; i++){
+        for(int i=1; i<=valor; i++){ç
             if(valor%i==0) System.out.println(i);
         }
     }
