@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
 public class Alumno {
+    private static final int MAX = 5;
     
-    Scanner sc = new Scanner(System in);
-    String nombre, apellidos, matricula;
-    double calificacion, numAsig;
-    String[] asignaturas = new String[5];
+    private String nombre, apellidos, matricula;
+    private double calificacion;
+    private int numAsig;
+    private String[] asignaturas;
     //Constructor con 4 parametros
     
     public Alumno(){
@@ -14,9 +15,10 @@ public class Alumno {
         matricula = "";
         calificacion = 0;
         numAsig = 0;
+        asignaturas = new String[MAX];
     }
     
-    public Alumno(nombre, apellidos, matricula, calificacion){
+    public Alumno(String nombre,String apellidos,String matricula,double calificacion){
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.matricula = matricula;
@@ -34,54 +36,47 @@ public class Alumno {
     public String getMatricula(){
         return matricula;
     }
-    public int getCalificacion(){
+    public double getCalificacion(){
         return calificacion;
     }
 
-    public void setNombre(){
-        System.out.println("Introduce un nombre: ");
-        nombre = sc.nextString();
+    public void setNombre(String nombre){
+        this.nombre = nombre;
     }
 
-    public void setApellidos(){
-        System.out.println("Introduce apellidos: ");
-        apellidos = sc.nextString();
+    public void setApellidos(String apellidos){
+       this.apellidos = apellidos;
     }
 
-    public void setMatricula(){
-        System.out.println("Introduce una matricula: ");
-        matricula = sc.nextString();
+    public void setMatricula(String matricula){
+        this.matricula = matricula;
     }
-    public void setCalificacion(){
-        System.out.println("Introduce una calificacion: ");
-        calificacion = sc.nextInt();
+    public void setCalificacion(double calificacion){
+        this.calificacion = calificacion;
     }
 
     public int getNumAsignaturas(){
-        int cont = 0;
-        for(int i=0; i<5;i++)
-            if(asignaturas[i]!=null) cont++;
-        return cont;
+        return numAsig;
     }
 
-    public void AnadirAsignaturas(){
-        Sysout.println("Introduce -1 para parar de añadir asignaturas")
-        for(int i = 0; i<5; i++)
-            if(asignaturas[i]==null){
-                asignaturas[i] = sc.nextString();
-                if(asignaturas[i]=='-1'){
-                    asignaturas[i]=null;
-                    i=4
-                }
-            }else if(asignaturas[i]!=null && i>=4){
-                System.out.println("No se pueden añadir mas asignaturas");
-            }
+    public void AnadirAsignaturas(String asignatura){
+        if(numAsig < 5){
+            this.asignaturas[numAsig] = asignatura;
+            numAsig++;
+        } else{
+            System.out.println("No se pueden añadir más asignaturas");
+        }
     }
 
     public void mostrarAsignaturas(){
-        for(int i=0; i<5;i++)
-            if(asignaturas[i]!=null) System.out.println(asignaturas[i]);
+        for(int i=0; i<numAsig;i++){ System.out.println(asignaturas[i]); }
+        if(numAsig==0){ System.out.println("El alumno no estám atriculado en ninguna asignatura"); }
     }
 
-    //tocode
+    public void mostrarAlumno(){
+        System.out.println(this.apellidos+", "+this.nombre+". Matr: "+this.matricula+" ("+this.calificacion+")");
+        mostrarAsignaturas();
+    }
+
+    
 }
