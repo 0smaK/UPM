@@ -23,6 +23,7 @@ public class Alumno {
         this.apellidos = apellidos;
         this.matricula = matricula;
         this.calificacion = calificacion;
+        numAsig = 0;
     }
 
     public String getNombre(){
@@ -60,8 +61,8 @@ public class Alumno {
     }
 
     public void AnadirAsignaturas(String asignatura){
-        if(numAsig < 5){
-            this.asignaturas[numAsig] = asignatura;
+        if(numAsig < MAX){
+            asignaturas[numAsig] = asignatura;
             numAsig++;
         } else{
             System.out.println("No se pueden añadir más asignaturas");
@@ -69,8 +70,8 @@ public class Alumno {
     }
 
     public void mostrarAsignaturas(){
-        for(int i=0; i<numAsig;i++){ System.out.println(asignaturas[i]); }
-        if(numAsig==0){ System.out.println("El alumno no estám atriculado en ninguna asignatura"); }
+        if(numAsig==0){ System.out.println("El alumno no estám atriculado en ninguna asignatura"); } 
+        else for(int i=0; i<numAsig;i++){ System.out.println(asignaturas[i]); }
     }
 
     public void mostrarAlumno(){

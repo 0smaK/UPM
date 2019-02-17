@@ -1,4 +1,4 @@
-public class Principal {
+public class Principal extends Alumno {
     public static void main(String[] args){
         Alumno[] alum = new Alumno[4];
 
